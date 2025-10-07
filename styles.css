@@ -422,6 +422,14 @@ nav a:hover::after { width: 100%; }
   text-align: center;
   overflow: hidden;
 }
+.about-college-content .section-title-center {
+  margin-top: 40px; /* jitna neeche chahiye adjust karo */
+}
+.about-college-content {
+  transform: translateY(-150px); /* jitna upar chahiye adjust karo */
+}
+
+
 
 .about-college-content { 
   max-width: 1200px; 
@@ -655,104 +663,128 @@ nav a:hover::after { width: 100%; }
   }
 }
 /* EVENTS SECTION - Enhanced with dark overlay */
-.events-section { 
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
-              linear-gradient(rgba(40,0,0,0.5), rgba(0,0,0,0.75)), 
-              url("https://t3.ftcdn.net/jpg/10/29/13/96/360_F_1029139671_EmXZogVbidUJWnW0o9hXXse8uanL3u1F.jpg") no-repeat center center fixed; 
-  background-size: cover; 
-  text-align: center; 
-  position: relative; 
-  padding: 80px 20px; 
-  overflow: hidden; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  min-height: 100vh; 
+/* EVENTS SECTION - Animated Horizontal Scroll */
+.events-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+              url("https://t3.ftcdn.net/jpg/10/29/13/96/360_F_1029139671_EmXZogVbidUJWnW0o9hXXse8uanL3u1F.jpg") no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.events-section .section-title { 
-  font-family: 'Cinzel Decorative', serif; 
-  font-size: clamp(2.5rem, 6vw, 4rem); 
-  color: var(--gold); 
-  text-shadow: 0 0 15px #fff,0 0 40px var(--fire-orange),0 0 60px var(--fire-red); 
-  margin-bottom: 60px; 
-  position: relative; 
-  display: inline-block; 
-  animation: headlineGlow 3s infinite alternate; 
+.events-section .section-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: gold;
+  text-shadow: 0 0 15px #fff, 0 0 40px orange, 0 0 60px red;
+  margin-bottom: 60px;
+  animation: headlineGlow 3s infinite alternate;
 }
 
-.events-container { 
-  position: relative; 
-  width: 100%; 
-  max-width: 1300px; 
-  margin: 0 auto; 
-  z-index: 1; 
+.events-container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
 }
-.events-scroll-wrapper { 
-  display: flex; 
-  overflow-x: auto; 
-  scroll-behavior: smooth; 
-  padding: 30px 20px; 
-  gap: 30px; 
-  scrollbar-width: none; 
-  scroll-snap-type: x mandatory; 
-  background: rgba(0, 0, 0, 0.4); /* Added dark background */
+
+.events-scroll-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 30px 0;
+  gap: 30px;
+  scrollbar-width: none;
+}
+
+.events-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.events-grid {
+  display: flex;
+  gap: 30px;
+}
+
+.event-card {
+  background: rgba(0, 0, 0, 0.7);
   border-radius: 15px;
-  backdrop-filter: blur(5px);
+  padding: 25px;
+  min-width: 300px;
+  max-width: 320px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeUp 1s ease forwards;
 }
-.events-scroll-wrapper::-webkit-scrollbar { display: none; }
-.events-grid { display: flex; gap: 30px; padding: 0 10px; }
-.event-card { 
-  background: rgba(30,0,0,0.75); 
-  backdrop-filter: blur(6px); 
-  border-radius: 20px; 
-  padding: 30px 25px; 
-  border: 2px solid var(--fire-orange); 
-  box-shadow: 0 0 20px rgba(255,69,0,0.6), inset 0 0 10px var(--deep-red); 
-  transition: all 0.4s ease; 
-  min-width: 300px; 
-  max-width: 320px; 
-  height: 380px; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: flex-start; 
-  align-items: center; 
-  text-align: center; 
-  flex-shrink: 0; 
-  position: relative; 
-  overflow: hidden; 
-  scroll-snap-align: start; 
+
+.event-card i {
+  font-size: 3rem;
+  color: orange;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px orange;
 }
-.event-card i { font-size: 3rem; color: var(--fire-red); margin-bottom: 20px; text-shadow: 0 0 25px var(--fire-orange); transition: all 0.3s ease; position: relative; z-index: 1; }
-.event-card h3 { font-family: 'Cinzel Decorative', serif; color: var(--gold); margin-bottom: 20px; text-shadow: 0 0 15px var(--fire-orange); font-size: 1.5rem; position: relative; z-index: 1; }
-.event-card p { color: #ffe6cc; font-size: 1.1rem; line-height: 1.6; position: relative; z-index: 1; }
-.scroll-btn { 
-  position: absolute; 
-  top: 50%; 
-  transform: translateY(-50%); 
-  background: rgba(30,0,0,0.7); 
-  border: 2px solid var(--fire-orange); 
-  color: var(--gold); 
-  width: 55px; 
-  height: 55px; 
-  border-radius: 50%; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  cursor: pointer; 
-  z-index: 2; 
-  transition: all 0.3s ease; 
-  box-shadow: 0 0 20px var(--fire-orange); 
+
+.event-card h3 {
+  font-family: 'Cinzel Decorative', serif;
+  color: gold;
+  margin-bottom: 15px;
 }
-.scroll-btn:hover { 
-  background: rgba(50,0,0,0.9); 
-  box-shadow: 0 0 35px var(--fire-red); 
-  transform: translateY(-50%) scale(1.15); 
-  border-color: var(--gold); 
+
+.event-card p {
+  color: #ffe6cc;
+  font-size: 1rem;
 }
-.scroll-btn.left { left: 15px; }
-.scroll-btn.right { right: 15px; }
-.scroll-btn i { font-size: 1.6rem; text-shadow: 0 0 15px var(--fire-orange); }
+
+.event-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 20px orange, 0 0 40px red;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: 2px solid orange;
+  color: gold;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-btn.left {
+  left: 10px;
+}
+
+.scroll-btn.right {
+  right: 10px;
+}
+
+.scroll-btn:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+/* Animations */
+@keyframes headlineGlow {
+  0% { text-shadow: 0 0 15px gold; }
+  50% { text-shadow: 0 0 30px orange; }
+  100% { text-shadow: 0 0 15px gold; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* COORDINATORS SECTION - Enhanced with dark overlay */
 #coordinators { 

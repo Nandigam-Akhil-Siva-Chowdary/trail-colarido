@@ -93,4 +93,36 @@
         alert('Thank you for your message! We will get back to you soon.');
         contactForm.reset();
       });
+      document.addEventListener('DOMContentLoaded', function() {
+    // your existing code (axe animation, candle animation, etc.)
+
+    // ===== NEW EVENTS SECTION ANIMATION =====
+    const eventCards = document.querySelectorAll('.event-card');
+    eventCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(50px)';
+        setTimeout(() => {
+            card.style.transition = 'all 0.6s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+
+    const eventsSection = document.querySelector('.events-section');
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY;
+        const sectionTop = eventsSection.offsetTop;
+        const sectionHeight = eventsSection.offsetHeight;
+
+        if (scrollPos > sectionTop - window.innerHeight / 1.2 &&
+            scrollPos < sectionTop + sectionHeight) {
+            eventsSection.style.boxShadow = "0 0 50px rgba(255, 140, 0, 0.8)";
+        } else {
+            eventsSection.style.boxShadow = "none";
+        }
+    });
+
+}); // ← THIS IS THE END OF DOMContentLoaded
+
+
     });
