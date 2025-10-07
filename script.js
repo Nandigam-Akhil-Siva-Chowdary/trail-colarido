@@ -122,7 +122,175 @@
         }
     });
 
-}); // ← THIS IS THE END OF DOMContentLoaded
+  }); 
 
 
-    });
+
+
+
+
+const scrollWrapper = document.getElementById("eventsScroll");
+
+let isDragging = false;
+let startX;
+let scrollLeft;
+let autoScrollInterval;
+let isHovered = false;
+let isTouchScrolling = false;
+
+// --- Auto Scroll Function ---
+function startAutoScroll() {
+  stopAutoScroll(); // prevent duplicates
+  autoScrollInterval = setInterval(() => {
+    // only scroll when not dragging / hovering / touch-scrolling
+    if (!isDragging && !isHovered && !isTouchScrolling) {
+      scrollWrapper.scrollLeft += 0.7; // 👈 control scroll speed
+      if (
+        scrollWrapper.scrollLeft >=
+        scrollWrapper.scrollWidth - scrollWrapper.clientWidth - 5
+      ) {
+        scrollWrapper.scrollLeft = 0; // 👈 loop to start
+      }
+    }
+  }, 30); // 👈 adjust timing for overall speed
+}
+
+// --- Stop Auto Scroll ---
+function stopAutoScroll() {
+  clearInterval(autoScrollInterval);
+}
+
+// --- Mouse Drag Events ---
+scrollWrapper.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  scrollWrapper.classList.add("dragging");
+  startX = e.pageX - scrollWrapper.offsetLeft;
+  scrollLeft = scrollWrapper.scrollLeft;
+});
+
+scrollWrapper.addEventListener("mouseup", () => {
+  isDragging = false;
+  scrollWrapper.classList.remove("dragging");
+});
+
+scrollWrapper.addEventListener("mouseleave", () => {
+  isDragging = false;
+  scrollWrapper.classList.remove("dragging");
+  isHovered = false;
+});
+
+scrollWrapper.addEventListener("mousemove", (e) => {
+  if (!isDragging) return;
+  e.preventDefault();
+  const x = e.pageX - scrollWrapper.offsetLeft;
+  const walk = (x - startX) * 1.5;
+  scrollWrapper.scrollLeft = scrollLeft - walk;
+});
+
+// --- Hover Pause ---
+scrollWrapper.addEventListener("mouseenter", () => {
+  isHovered = true;
+});
+scrollWrapper.addEventListener("mouseleave", () => {
+  isHovered = false;
+});
+
+// --- Touchpad / Two-Finger Scroll Detection ---
+scrollWrapper.addEventListener("wheel", (e) => {
+  if (Math.abs(e.deltaX) > 0 || Math.abs(e.deltaY) > 0) {
+    isTouchScrolling = true;
+    clearTimeout(scrollWrapper.touchTimeout);
+    scrollWrapper.touchTimeout = setTimeout(() => {
+      isTouchScrolling = false;
+    }, 1000); // resumes after 1s of no scroll
+  }
+});
+
+// --- Start Auto Scroll Initially ---
+startAutoScroll();
+
+
+
+const coordinatorsScroll = document.getElementById("coordinatorsScroll");
+
+let isDraggingC = false;
+let startXC;
+let scrollLeftC;
+let autoScrollIntervalC;
+let isHoveredC = false;
+let isTouchScrollingC = false;
+
+// --- Auto Scroll Function ---
+function startAutoScrollCoordinators() {
+  stopAutoScrollCoordinators(); // avoid duplicates
+  autoScrollIntervalC = setInterval(() => {
+    if (!isDraggingC && !isHoveredC && !isTouchScrollingC) {
+      coordinatorsScroll.scrollLeft += 1.2 // 👈 speed control
+      if (
+        coordinatorsScroll.scrollLeft >=
+        coordinatorsScroll.scrollWidth - coordinatorsScroll.clientWidth - 5
+      ) {
+        coordinatorsScroll.scrollLeft = 0; // 👈 loop to start
+      }
+    }
+  }, 30); // 👈 interval control
+}
+
+// --- Stop Auto Scroll ---
+function stopAutoScrollCoordinators() {
+  clearInterval(autoScrollIntervalC);
+}
+
+// --- Mouse Drag ---
+coordinatorsScroll.addEventListener("mousedown", (e) => {
+  isDraggingC = true;
+  coordinatorsScroll.classList.add("dragging");
+  startXC = e.pageX - coordinatorsScroll.offsetLeft;
+  scrollLeftC = coordinatorsScroll.scrollLeft;
+});
+
+coordinatorsScroll.addEventListener("mouseup", () => {
+  isDraggingC = false;
+  coordinatorsScroll.classList.remove("dragging");
+});
+
+coordinatorsScroll.addEventListener("mouseleave", () => {
+  isDraggingC = false;
+  coordinatorsScroll.classList.remove("dragging");
+  isHoveredC = false;
+});
+
+coordinatorsScroll.addEventListener("mousemove", (e) => {
+  if (!isDraggingC) return;
+  e.preventDefault();
+  const x = e.pageX - coordinatorsScroll.offsetLeft;
+  const walk = (x - startXC) * 1.5;
+  coordinatorsScroll.scrollLeft = scrollLeftC - walk;
+});
+
+// --- Hover Pause ---
+coordinatorsScroll.addEventListener("mouseenter", () => {
+  isHoveredC = true;
+});
+coordinatorsScroll.addEventListener("mouseleave", () => {
+  isHoveredC = false;
+});
+
+// --- Touchpad / Two-Finger Scroll ---
+coordinatorsScroll.addEventListener("wheel", (e) => {
+  if (Math.abs(e.deltaX) > 0 || Math.abs(e.deltaY) > 0) {
+    isTouchScrollingC = true;
+    clearTimeout(coordinatorsScroll.touchTimeout);
+    coordinatorsScroll.touchTimeout = setTimeout(() => {
+      isTouchScrollingC = false;
+    }, 1000);
+  }
+});
+
+// --- Start Auto Scroll Initially ---
+startAutoScrollCoordinators();
+
+
+
+
+});

@@ -17,7 +17,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Spectral', serif;
-  background: linear-gradient(rgba(0, 20, 40, 0.85), rgba(0, 0, 0, 0.9)), url("Matsya.jpg") no-repeat center 20% fixed;
+  background: linear-gradient(rgba(0, 20, 40, 0.85), rgba(0, 0, 0, 0.9)), url("assets/Matsya.jpg") no-repeat center 20% fixed;
   background-size: cover;
   color: var(--light-blue);
   overflow-x: hidden;
@@ -224,7 +224,7 @@ nav a:hover::after { width: 100%; }
 
 /* ABOUT FEST SECTION - With Left Image */
 .about-section { 
-  background: linear-gradient(rgba(0, 20, 40, 0.85), rgba(0, 0, 0, 0.9)), url("kurma.jpg") no-repeat center center fixed; 
+  background: linear-gradient(rgba(0, 20, 40, 0.85), rgba(0, 0, 0, 0.9)), url("assets/kurma.jpg") no-repeat center center fixed; 
   background-size: cover; 
   text-align: center; 
   height: 90vh;
@@ -261,7 +261,7 @@ nav a:hover::after { width: 100%; }
 }
 
 .fest-img {
-  width: 100%;
+  width: 90%;
   height: 450px;
   border: 3px solid var(--gold);
   border-radius: 15px;
@@ -665,8 +665,8 @@ nav a:hover::after { width: 100%; }
 /* EVENTS SECTION - Enhanced with dark overlay */
 /* EVENTS SECTION - Animated Horizontal Scroll */
 .events-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-              url("https://t3.ftcdn.net/jpg/10/29/13/96/360_F_1029139671_EmXZogVbidUJWnW0o9hXXse8uanL3u1F.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.75)),
+              url("assets/narasimha.jpg ") no-repeat center center fixed;
   background-size: cover;
   text-align: center;
   padding: 80px 20px;
@@ -786,26 +786,193 @@ nav a:hover::after { width: 100%; }
 }
 
 
+/* ===================== COORDINATORS SECTION ===================== */
 /* COORDINATORS SECTION - Enhanced with dark overlay */
-#coordinators { 
+#coordinators {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)), 
               linear-gradient(rgba(0,20,40,0.55), rgba(0,0,0,0.8)), 
-              url("Vamana.jpg") no-repeat center 20% fixed; 
+              url("assets/Vamana.jpg") no-repeat center 20% fixed; 
   background-size: cover;
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+#coordinators .section-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: gold;
+  text-shadow: 0 0 15px #fff, 0 0 40px orange, 0 0 60px red;
+  margin-bottom: 60px;
+  animation: headlineGlow 3s infinite alternate;
+}
+
+#coordinators .events-container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
 }
 
 #coordinators .events-scroll-wrapper {
-  background: rgba(0, 0, 0, 0.4); /* Added dark background */
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 30px 0;
+  gap: 30px;
+  scrollbar-width: none;
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 15px;
   backdrop-filter: blur(5px);
   padding: 30px 20px;
+  cursor: grab;
+}
+
+#coordinators .events-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+#coordinators .events-scroll-wrapper.dragging {
+  cursor: grabbing;
+}
+
+#coordinators .events-grid {
+  display: flex;
+  gap: 30px;
 }
 
 #coordinators .event-card {
-  background: rgba(0, 0, 0, 0.5); /* Enhanced transparency */
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 25px;
+  min-width: 300px;
+  max-width: 320px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeUp 1s ease forwards;
+  background: rgba(0, 0, 0, 0.5);
   border: 2px solid rgba(255, 215, 0, 0.6);
   box-shadow: 0 0 15px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2);
 }
+
+#coordinators .event-card i {
+  font-size: 3rem;
+  color: orange;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px orange;
+}
+
+#coordinators .event-card h3 {
+  font-family: 'Cinzel Decorative', serif;
+  color: gold;
+  margin-bottom: 15px;
+}
+
+#coordinators .event-card p {
+  color: #ffe6cc;
+  font-size: 1rem;
+}
+
+#coordinators .event-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 20px orange, 0 0 40px red;
+}
+
+#coordinators .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: 2px solid orange;
+  color: gold;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#coordinators .scroll-btn.left {
+  left: 10px;
+}
+
+#coordinators .scroll-btn.right {
+  right: 10px;
+}
+
+#coordinators .scroll-btn:hover {
+  background: rgba(0,0,0,0.9);
+}
+
+/* Animations */
+@keyframes headlineGlow {
+  0% { text-shadow: 0 0 15px gold; }
+  50% { text-shadow: 0 0 30px orange; }
+  100% { text-shadow: 0 0 15px gold; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+.event-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  margin-bottom: 15px;
+}
+
+.event-buttons {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.register-btn, .info-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.register-btn {
+  background: orange;
+  color: #000;
+}
+
+.info-btn {
+  background: gold;
+  color: #000;
+}
+
+.register-btn:hover, .info-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px gold;
+}
+
+.events-scroll-wrapper {
+  cursor: grab;
+}
+.events-scroll-wrapper.dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
 
 /* SCHEDULE SECTION - Ancient Map Style - FIXED PATH LINE */
 #schedule {
@@ -1102,7 +1269,7 @@ nav a:hover::after { width: 100%; }
 /* SPONSORS SECTION */
 #sponsors {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
-              url("https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/27feb2bb-aeb4-4a83-9fb6-8f3f2a15885e/e2910c90-5c2d-4ea7-8bee-0b34b3c3e5f7.png") no-repeat center center fixed;
+              url("https://4kwallpapers.com/images/wallpapers/jai-shri-ram-hindu-2560x1080-14453.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -1246,7 +1413,7 @@ nav a:hover::after { width: 100%; }
 /* GALLERY SECTION */
 #gallery {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
-              url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcs-V0wUqVgEnJjGa8vHzS-cVhvLzYeGmUfQ&s") no-repeat center center fixed;
+              url("https://t4.ftcdn.net/jpg/09/07/82/47/360_F_907824791_WAce6o9HCCPVptj4ftDDKBJ9KhkvSBAd.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative;
   overflow: hidden;
