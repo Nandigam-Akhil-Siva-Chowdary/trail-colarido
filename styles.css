@@ -666,7 +666,7 @@ nav a:hover::after { width: 100%; }
 /* EVENTS SECTION - Animated Horizontal Scroll */
 .events-section {
   background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.75)),
-              url("assets/narasimha.jpg ") no-repeat center center fixed;
+              url("assets/narasimha.jpg ") no-repeat center 10% fixed;
   background-size: cover;
   text-align: center;
   padding: 80px 20px;
@@ -709,7 +709,7 @@ nav a:hover::after { width: 100%; }
 }
 
 .event-card {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.605);
   border-radius: 15px;
   padding: 25px;
   min-width: 300px;
@@ -788,26 +788,30 @@ nav a:hover::after { width: 100%; }
 
 /* ===================== COORDINATORS SECTION ===================== */
 /* COORDINATORS SECTION - Enhanced with dark overlay */
+/* ===================== COORDINATORS SECTION ===================== */
 #coordinators {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)), 
-              linear-gradient(rgba(0,20,40,0.55), rgba(0,0,0,0.8)), 
-              url("assets/Vamana.jpg") no-repeat center 20% fixed; 
+  background: linear-gradient(rgba(0, 0, 0, 0.80), rgba(0, 0, 0, 0.75)),
+              url("assets/Vamana.jpg") no-repeat center 10% fixed;
   background-size: cover;
   text-align: center;
-  padding: 80px 20px;
+  padding: 40px 20px;
   position: relative;
   overflow: hidden;
+  color: #fff;
+  height: 90vh;
 }
 
+/* Section Title */
 #coordinators .section-title {
   font-family: 'Cinzel Decorative', serif;
   font-size: clamp(2.5rem, 6vw, 4rem);
-  color: gold;
-  text-shadow: 0 0 15px #fff, 0 0 40px orange, 0 0 60px red;
+  color: #FFD700;
+  text-shadow: 0 0 10px #fff, 0 0 25px gold, 0 0 40px orange;
   margin-bottom: 60px;
-  animation: headlineGlow 3s infinite alternate;
+  animation: glowTitle 3s infinite alternate;
 }
 
+/* Scroll Container */
 #coordinators .events-container {
   position: relative;
   width: 100%;
@@ -815,129 +819,82 @@ nav a:hover::after { width: 100%; }
   margin: auto;
 }
 
+/* Scroll Wrapper */
 #coordinators .events-scroll-wrapper {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 30px 0;
   gap: 30px;
+  padding: 20px;
   scrollbar-width: none;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 15px;
-  backdrop-filter: blur(5px);
-  padding: 30px 20px;
-  cursor: grab;
-}
 
-#coordinators .events-scroll-wrapper::-webkit-scrollbar {
-  display: none;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  cursor: grab;
 }
 
 #coordinators .events-scroll-wrapper.dragging {
   cursor: grabbing;
 }
 
-#coordinators .events-grid {
-  display: flex;
-  gap: 30px;
-}
-
-#coordinators .event-card {
-  position: relative;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px;
-  padding: 25px;
-  min-width: 300px;
-  max-width: 320px;
-  height: 380px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  animation: fadeUp 1s ease forwards;
-  background: rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(255, 215, 0, 0.6);
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2);
-}
-/* COORDINATORS SECTION - Enhanced with dark overlay and scroll */
-#coordinators {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)),
-              url("Vamana.jpg") no-repeat center center fixed;
-  background-size: cover;
-  text-align: center;
-  padding: 80px 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-#coordinators .section-title {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  color: #FFD700;
-  text-shadow: 0 0 15px #fff, 0 0 40px gold, 0 0 60px orange;
-  margin-bottom: 60px;
-  animation: headlineGlow 3s infinite alternate;
-}
-
-#coordinators .events-container {
-  position: relative;
-  width: 100%;
-  max-width: 1300px;
-  margin: auto;
-}
-
-#coordinators .events-scroll-wrapper {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 30px;
-  scrollbar-width: none;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 15px;
-  padding: 30px 0;
-}
-
 #coordinators .events-scroll-wrapper::-webkit-scrollbar {
   display: none;
 }
 
+/* Grid of Cards */
 #coordinators .events-grid {
   display: flex;
   gap: 30px;
+  flex-wrap: nowrap;
 }
 
+/* Event Card Styling */
 #coordinators .event-card {
-  background: rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(255, 215, 0, 0.6);
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2);
-  padding: 25px;
-  min-width: 300px;
+  background: rgba(0, 0, 0, 0.612);
+  border: 2px solid rgba(255, 215, 0, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3), inset 0 0 10px rgba(255, 215, 0, 0.15);
+  min-width: 280px;
   max-width: 320px;
-  height: 380px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
+  padding: 25px 20px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  animation: fadeUp 1s ease forwards;
+  position: relative;
 }
 
-#coordinators .event-card i {
-  font-size: 3rem;
-  color: gold;
-  margin-bottom: 20px;
-  text-shadow: 0 0 15px orange;
+/* Individual Image Classes */
+#coordinators .event-card .coordinator-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid gold;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#coordinators .event-card .coordinator-img.front {
+  border-color: #FFD700;
+}
+
+#coordinators .event-card .coordinator-img.back {
+  border-color: #FFA500;
+}
+
+#coordinators .event-card .coordinator-img.special {
+  border-color: #FF4500;
 }
 
 #coordinators .event-card h3 {
   font-family: 'Cinzel Decorative', serif;
   color: gold;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
 }
 
 #coordinators .event-card p {
@@ -945,86 +902,98 @@ nav a:hover::after { width: 100%; }
   font-size: 1rem;
 }
 
+/* Hover Effects */
 #coordinators .event-card:hover {
   transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 20px orange, 0 0 40px gold;
+  box-shadow: 0 0 25px gold, 0 0 40px orange, inset 0 0 15px rgba(255, 215, 0, 0.2);
 }
 
+#coordinators .event-card:hover .coordinator-img {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px gold;
+}
+
+/* Scroll Buttons */
 #coordinators .scroll-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.5);
   border: 2px solid gold;
   color: gold;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   cursor: pointer;
+  font-size: 1.5rem;
   z-index: 10;
-}
-
-#scrollLeftCoordinators {
-  left: 10px;
-}
-
-#scrollRightCoordinators {
-  right: 10px;
-}
-
-#coordinators .scroll-btn:hover {
-  background: rgba(0,0,0,0.9);
-}
-
-
-#coordinators .event-card i {
-  font-size: 3rem;
-  color: orange;
-  margin-bottom: 20px;
-  text-shadow: 0 0 15px orange;
-}
-
-#coordinators .event-card h3 {
-  font-family: 'Cinzel Decorative', serif;
-  color: gold;
-  margin-bottom: 15px;
-}
-
-#coordinators .event-card p {
-  color: #ffe6cc;
-  font-size: 1rem;
-}
-
-#coordinators .event-card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 0 20px orange, 0 0 40px red;
-}
-
-#coordinators .scroll-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.6);
-  border: 2px solid orange;
-  color: gold;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
+  transition: all 0.3s ease;
 }
 
 #coordinators .scroll-btn.left {
-  left: 10px;
+  left: 15px;
 }
 
 #coordinators .scroll-btn.right {
-  right: 10px;
+  right: 15px;
 }
 
 #coordinators .scroll-btn:hover {
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.75);
+  transform: translateY(-50%) scale(1.1);
 }
+
+/* Animations */
+@keyframes glowTitle {
+  0% { text-shadow: 0 0 10px #fff, 0 0 25px gold, 0 0 40px orange; }
+  50% { text-shadow: 0 0 20px #fff, 0 0 40px gold, 0 0 60px orange; }
+  100% { text-shadow: 0 0 10px #fff, 0 0 25px gold, 0 0 40px orange; }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #coordinators .events-grid {
+    gap: 20px;
+  }
+
+  #coordinators .event-card {
+    min-width: 250px;
+    height: 360px;
+    padding: 20px;
+  }
+
+  #coordinators .event-card .coordinator-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  #coordinators .section-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #coordinators .event-card {
+    min-width: 200px;
+    height: 320px;
+    padding: 15px;
+  }
+
+  #coordinators .event-card .coordinator-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  #coordinators .section-title {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+}
+
 
 /* Animations */
 @keyframes headlineGlow {
@@ -1122,17 +1091,15 @@ nav a:hover::after { width: 100%; }
 .ancient-map {
   position: relative;
   width: 100%;
-  height: 600px;
-  background-color: var(--parchment);
+  height: 500px;
   border: 15px solid #8B4513;
   border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%238B4513"/><path d="M0,0 Q50,20 100,0 L100,100 Q50,80 0,100 Z" fill="%23A0522D"/></svg>') 30 stretch;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7), inset 0 0 50px rgba(139, 69, 19, 0.3);
+  box-shadow: 0 0 40px rgba(204, 175, 34, 0.504), inset 0 0 50px rgba(241, 187, 50, 0.524);
   overflow: visible; /* Changed from hidden to visible */
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 50% 50%, rgba(139, 69, 19, 0.05) 0%, transparent 50%);
+  background: linear-gradient(rgba(124, 112, 24, 0.359), rgba(153, 147, 32, 0.228)),
+              url("https://png.pngtree.com/background/20210716/original/pngtree-vintage-paper-background-with-ink-splatters-picture-image_1365795.jpg" ) no-repeat center center;
   z-index: 1; /* Added z-index */
+  background-size: cover;
 }
 
 /* FIXED PATH LINE - Single continuous path */
@@ -1387,8 +1354,8 @@ nav a:hover::after { width: 100%; }
   background-size: cover;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
-  padding: 100px 20px 50px;
+  min-height: 120vh;
+  padding: 40px 20px 50px;
   text-align: center;
 }
 
@@ -1678,7 +1645,7 @@ nav a:hover::after { width: 100%; }
   background-size: cover;
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 110vh;
   padding: 40px 20px 20px; /* Reduced padding */
   text-align: center;
 }
@@ -1927,7 +1894,7 @@ textarea.form-control {
 /* FOOTER SECTION */
 footer {
   background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
-              url("https://www.chamundaswamiji.com/wp-content/uploads/2024/11/Kalki.png") no-repeat center 30%;
+              url("https://www.chamundaswamiji.com/wp-content/uploads/2024/11/Kalki.png") no-repeat center 20%;
   background-size: cover;
   position: relative;
   overflow: hidden;
@@ -1937,18 +1904,26 @@ footer {
 }
 
 .footer-content {
-  max-width: 1200px;
+  min-width: none;
+  max-width: 100%;
   margin: 0 auto;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 40px;
+  gap: 30px;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 .footer-section {
   flex: 1;
-  min-width: 250px;
+  min-width: 150px;
+  max-width: 300px;
+  min-height: 100px;
+  max-height: 250p;
+  justify-items: center;
+
 }
 
 .footer-section h3 {
@@ -1959,6 +1934,7 @@ footer {
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
   position: relative;
   display: inline-block;
+
 }
 
 .footer-section h3::after {
