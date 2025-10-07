@@ -862,6 +862,120 @@ nav a:hover::after { width: 100%; }
   border: 2px solid rgba(255, 215, 0, 0.6);
   box-shadow: 0 0 15px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2);
 }
+/* COORDINATORS SECTION - Enhanced with dark overlay and scroll */
+#coordinators {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)),
+              url("Vamana.jpg") no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+#coordinators .section-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: #FFD700;
+  text-shadow: 0 0 15px #fff, 0 0 40px gold, 0 0 60px orange;
+  margin-bottom: 60px;
+  animation: headlineGlow 3s infinite alternate;
+}
+
+#coordinators .events-container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+#coordinators .events-scroll-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 30px;
+  scrollbar-width: none;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 30px 0;
+}
+
+#coordinators .events-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+#coordinators .events-grid {
+  display: flex;
+  gap: 30px;
+}
+
+#coordinators .event-card {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2);
+  padding: 25px;
+  min-width: 300px;
+  max-width: 320px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeUp 1s ease forwards;
+}
+
+#coordinators .event-card i {
+  font-size: 3rem;
+  color: gold;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px orange;
+}
+
+#coordinators .event-card h3 {
+  font-family: 'Cinzel Decorative', serif;
+  color: gold;
+  margin-bottom: 15px;
+}
+
+#coordinators .event-card p {
+  color: #ffe6cc;
+  font-size: 1rem;
+}
+
+#coordinators .event-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 20px orange, 0 0 40px gold;
+}
+
+#coordinators .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: 2px solid gold;
+  color: gold;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#scrollLeftCoordinators {
+  left: 10px;
+}
+
+#scrollRightCoordinators {
+  right: 10px;
+}
+
+#coordinators .scroll-btn:hover {
+  background: rgba(0,0,0,0.9);
+}
+
 
 #coordinators .event-card i {
   font-size: 3rem;
