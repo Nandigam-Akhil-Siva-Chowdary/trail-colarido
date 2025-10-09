@@ -351,5 +351,35 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Add letter spans to the title
+document.addEventListener('DOMContentLoaded', function() {
+    const title = document.querySelector('.hero h1');
+    const text = title.textContent;
+    title.textContent = '';
+    
+    // Create spans for each letter
+    for (let i = 0; i < text.length; i++) {
+        const span = document.createElement('span');
+        span.textContent = text[i];
+        span.style.animationDelay = `${0.1 + (i * 0.1)}s`;
+        title.appendChild(span);
+    }
+    
+    // Add scroll effect for navigation
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+    
+    // Add pulsing animation after initial entrance
+    setTimeout(() => {
+        title.classList.add('animated');
+    }, 3000);
+});
+
 
 });
